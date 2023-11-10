@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Finder Results</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Recipes You Can Make</h1>
+        <div class="recipes">
+            {% if possible_recipes %}
+                <ul>
+                    {% for recipe in possible_recipes %}
+                        <li>{{ recipe }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No recipes found with the provided ingredients. Please try again with different ingredients.</p>
+            {% endif %}
+        </div>
+        <form action="/" method="get">
+            <button class="btn">Try Again</button>
+        </form>
+    </div>
+</body>
+</html>
